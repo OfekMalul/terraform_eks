@@ -10,5 +10,8 @@ module "vpc" {
     # automatic assigment of public ip to ec2 launch in the subnets
     map_public_ip_on_launch = true
 
+    # Tags for all resources 
     tags = var.tags
+
+    public_subnet_tags = var.pub_sub_tags
 }

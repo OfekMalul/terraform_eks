@@ -12,3 +12,11 @@ variable "tags" {
     Environment = "production"
   }
 }
+
+variable "pub_sub_tags" {
+   description = "tags"
+   type        = map
+   default     = {
+     "kubernetes.io/role/elb" = 1
+  }
+}
