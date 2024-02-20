@@ -53,7 +53,7 @@ module "eks" {
       max_size     = 1
       desired_size = 1
 
-      capacity_type  = "ON_DEMAND"
+      capacity_type  = "SPOT"
       tags = var.tags
     }
   }
