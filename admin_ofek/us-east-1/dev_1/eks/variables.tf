@@ -3,7 +3,7 @@ variable "tags" {
   type        = map
   default     = {
     Terraform   = "true"
-    Environment = "production"
+    Environment = "dev-1"
   }
 }
 
