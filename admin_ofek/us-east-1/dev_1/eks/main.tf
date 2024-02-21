@@ -1,11 +1,7 @@
-data "aws_vpc" "selected"{
-    id = "vpc-77777" # Change this according to output id from the vpc terraform apply
-}
-
 data "aws_subnets" "public_subnets"{
     filter {
-        id = "vpc-id"
-        values = [data.aws_vpc.selected.id]
+        name = "vpc-id"
+        values = [var.vpc_id]
     }
 }
 
@@ -31,13 +27,13 @@ module "eks" {
     }
   }
 
-  vpc_id                   = data.aws_vpc.selected.id
+  vpc_id                   = var.vpc_id
   subnet_ids               = data.aws_subnets.public_subnets.ids
   control_plane_subnet_ids = data.aws_subnets.public_subnets.ids
 
   eks_managed_node_group_defaults = {
-    instance_types = ["t3.medium"]
-    ami_type = "BOTTLEROCKET_ARM_64" # using bottlerocket as it is speciflly made to host containers
+    instance_types = ["t3.large"]
+    ami_type = "BOTTLEROCKET_x86_64" # using bottlerocket as it is speciflly made to host containers
   }
 
   eks_managed_node_groups = {
