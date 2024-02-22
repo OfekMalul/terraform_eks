@@ -12,6 +12,6 @@ module "iam_eks_role" {
 
    # !!! Change policy according to the arn policy created when doing terraform apply in the policies folder !!! #
   role_policy_arns = {
-    policy = "arn:aws:iam::504122215048:policy/AWSLoadBalancerControllerIAMPolicy"
+    policy = "arn:aws:iam::{{ secrets.ACCOUNT_ID_AWS }}:policy/AWSLoadBalancerControllerIAMPolicy"
   }
 }
