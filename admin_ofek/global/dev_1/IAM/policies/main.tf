@@ -1,4 +1,7 @@
-resource "aws_iam_policy" "AWSLoadBalancerControllerIAMPolicy " {
+# Created by: Ofek Malul
+# Date: 22/2/2024
+
+resource "aws_iam_policy" "AWSLoadBalancerControllerIAMPolicy" {
   name        = "AWSLoadBalancerControllerIAMPolicy"
   path        = "/"
   description = "Policy for the alb ingress controller"
