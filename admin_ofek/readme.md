@@ -1,9 +1,10 @@
 # Terraform EKS Cluster Project Dev-1
 
-## Architecte Overview
+## Architecture Overview
 ![alt text](diagram.png)
+
 ## Description
-This terraform project implement an EKS cluster using terraform. Creating VPC with public subnets across multiple AZ's, an EKS as well as policy and role for ALB ingress controller.  
+This Terraform project implements an Amazon Elastic Kubernetes Service (EKS) cluster. It creates a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs), provisions an EKS cluster, and establishes policies and roles necessary for the Application Load Balancer (ALB) Ingress Controller
 
 ## Pre Requirements
 * Terraform installed
@@ -51,6 +52,5 @@ terraform apply --auto-approve
 ```
 
 ## Summary
-At this point you have an EKS cluster available with all required permissions.
-Loadbalancer has yet to be created for the EKS cluster. You will need to deploy your configure helm chart to make it work. You can observe the helm chart in my repository for reference 
+At this stage, an EKS cluster is now provisioned with all necessary permissions in place. However, the creation of the load balancer for the EKS cluster is pending. To enable its functionality, you will need to deploy and configure the Helm chart associated with it. For reference, you can examine the Helm chart available in my repository.
 https://github.com/OfekMalul/helm_charts
