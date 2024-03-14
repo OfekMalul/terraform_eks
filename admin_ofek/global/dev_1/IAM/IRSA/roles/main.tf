@@ -14,6 +14,20 @@ module "iam_eks_role" {
 
    # !!! Change policy according to the arn policy created when doing terraform apply in the policies folder !!! #
   role_policy_arns = {
-    policy = "arn:aws:iam::data.aws_caller_identity.current.account_id:policy/AWSLoadBalancerControllerIAMPolicy"
+    policy = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/AWSLoadBalancerControllerIAMPolicy"
+  }
+}
+
+module "ebs_csi_role" {
+  source = "terraform-aws-modules/iam/aws//modules/iam-eks-role"
+  role_name = "ebs-csi-terraform-eks-cluster"
+ 
+  cluster_service_accounts = {
+    "terraform-eks-cluster" = ["kube-system:ebs-csi-controller"]
+  }
+
+   # !!! Change policy according to the arn policy created when doing terraform apply in the policies folder !!! #
+  role_policy_arns = {
+    policy = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/EBSIAMPolicy"
   }
 }

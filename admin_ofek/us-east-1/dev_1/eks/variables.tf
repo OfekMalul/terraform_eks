@@ -10,5 +10,5 @@ variable "tags" {
 variable "vpc_id" {
   description = "vpc id - please change if created new vpc"
   type = string
-  default = "vpc-0072509c4b4638b01"
+  default = "vpc-0d12c165c357928b5"
 }
