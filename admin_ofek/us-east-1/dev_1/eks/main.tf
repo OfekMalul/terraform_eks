@@ -51,17 +51,3 @@ module "eks" {
   enable_cluster_creator_admin_permissions = true
   tags = var.tags
 }
-
-# module "eks_auth"{
-#   source  = "terraform-aws-modules/eks/aws//modules/aws-auth"
-#   version = "~> 20.0"
-#   create_aws_auth_configmap    = false
-#   manage_aws_auth_configmap    = true
-#   aws_auth_roles = [
-#     {
-#       rolearn  = "arn:aws:iam::data.aws_caller_identity.current.account_id:role/github_role"
-#       username = "github"
-#       groups   = ["system:masters"]
-#     },
-#   ]
-# }
