@@ -1,7 +1,7 @@
 # Terraform EKS Cluster Project Dev-1
 
 ## Architecture Overview
-![alt text](diagram.png)
+![alt text](architect.png)
 
 ## Description
 This Terraform project implements an Amazon Elastic Kubernetes Service (EKS) cluster. It creates a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs), provisions an EKS cluster, and establishes policies and roles necessary for the Application Load Balancer (ALB) Ingress Controller
