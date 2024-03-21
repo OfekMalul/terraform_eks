@@ -4,7 +4,12 @@
 ![alt text](architect.png)
 
 ## Description
-This Terraform project implements an Amazon Elastic Kubernetes Service (EKS) cluster. It creates a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs), provisions an EKS cluster, and establishes policies and roles necessary for the Application Load Balancer (ALB) Ingress Controller
+This Terraform project implements an Amazon Elastic Kubernetes Service (EKS) cluster. It creates a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs). Along with the creation of infrastructure needed for EKS, terrfaorm is being utilized as well to create policies and roles necessary for the Application Load Balancer (ALB) Ingress Controller, and EBS. 
+
+It is recommended to add route 53, CM if you would like to configure ssl trafic to your ALB.
+
+## EKS Cluster Contents
+The EKS cluster in my personal project contains ArgoCD and an applicaion weather app. The Argocd is been deployed with helm and is used for the CD of the CI/CD pipeline (for reference my CI/CD pipeline is at https://github.com/OfekMalul/weather_app_project_eks/tree/main/.github/workflows). Argo than continously monitor my gitops repository https://github.com/OfekMalul/helm_charts to manage the deployment of the weather app.
 
 ## Pre Requirements
 * Terraform installed
@@ -20,7 +25,6 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 To enable your local machine to communicate with your aws account you can:
 1. Create a specific user group and user to manage the eks cluster
 2. Utilize your admin account
-3. .....
 
 ```bash
 aws configure
@@ -28,25 +32,26 @@ aws configure
 
 ## Setup the EKS Cluster
 In order to setup the cluster please follow along
-1. Create VPC
+1. Create VPC - Go to the vpc folder
 ```bash
 terraform apply --auto-approve
 ```
 
 2. Copy vpc_id to variables in the eks cluster (the vpc_id should appear on your terminal)
 
-3. Create the EKS cluster
+3. Create the EKS cluster - Go to EKS folder
 ```bash
 terraform apply --auto-approve
 ```
 
-4. Create the IAM policy
+4. Create the IAM policy - Go to IAM policy folder
 ```bash
 terraform apply --auto-approve
 ```
+
 5. Copy the policy arn (should appear on the console) into the roles variables file
 
-6. Create the role
+6. Create the role - Go to Role folder
 ```bash
 terraform apply --auto-approve
 ```
