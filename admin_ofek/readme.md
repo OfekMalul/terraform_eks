@@ -4,16 +4,17 @@
 ![alt text](architect.png)
 
 ## Description
-This Terraform project implements an Amazon Elastic Kubernetes Service (EKS) cluster. It creates a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs). Along with the creation of infrastructure needed for EKS, terrfaorm is being utilized as well to create policies and roles necessary for the Application Load Balancer (ALB) Ingress Controller, and EBS. 
+This Terraform project orchestrates the creation of an Amazon Elastic Kubernetes Service (EKS) cluster, encompassing a Virtual Private Cloud (VPC) with public subnets distributed across multiple Availability Zones (AZs). In addition to provisioning the necessary infrastructure for EKS, Terraform is employed to establish policies and roles crucial for the Application Load Balancer (ALB) Ingress Controller and Elastic Block Store (EBS).
 
-It is recommended to add route 53, CM if you would like to configure ssl trafic to your ALB.
+For enhanced functionality, it is advisable to integrate Route 53 and Certificate Manager to enable SSL traffic configuration for your ALB.
 
 ## EKS Cluster Contents
-The EKS cluster in my personal project contains ArgoCD and an applicaion weather app. The Argocd is been deployed with helm and is used for the CD of the CI/CD pipeline (for reference my CI/CD pipeline is at https://github.com/OfekMalul/weather_app_project_eks/tree/main/.github/workflows). Argo than continously monitor my gitops repository https://github.com/OfekMalul/helm_charts to manage the deployment of the weather app.
+The EKS cluster within this project includes ArgoCD, ALB controller, and a weather application. ArgoCD, deployed via Helm, serves as the Continuous Delivery (CD) tool for the CI/CD pipeline (for reference my CI/CD pipeline is at https://github.com/OfekMalul/weather_app_project_eks/tree/main/.github/workflows). Argo than continously monitor my gitops repository https://github.com/OfekMalul/helm_charts to manage the deployment of the weather app.
 
 ## Pre Requirements
 * Terraform installed
 * AWS account
+* Kubectl installed
 ## Installation
 
 To install terraform on your machine please follow the link:
@@ -21,6 +22,9 @@ https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
 To install aws CLI on your machine:
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+To install kubectl on your machine:
+https://kubernetes.io/docs/tasks/tools/
 
 To enable your local machine to communicate with your aws account you can:
 1. Create a specific user group and user to manage the eks cluster
@@ -34,6 +38,7 @@ aws configure
 In order to setup the cluster please follow along
 1. Create VPC - Go to the vpc folder
 ```bash
+terraform plan
 terraform apply --auto-approve
 ```
 
@@ -41,11 +46,13 @@ terraform apply --auto-approve
 
 3. Create the EKS cluster - Go to EKS folder
 ```bash
+terraform plan
 terraform apply --auto-approve
 ```
 
 4. Create the IAM policy - Go to IAM policy folder
 ```bash
+terraform plan
 terraform apply --auto-approve
 ```
 
@@ -53,7 +60,15 @@ terraform apply --auto-approve
 
 6. Create the role - Go to Role folder
 ```bash
+terraform plan
 terraform apply --auto-approve
+```
+
+## Setup connection to EKS Cluster
+In order to connect to your fresh new EKS cluster you need to configure your .kube/config file
+
+```bash
+aws eks update-kubeconfig --region us-east-1 --name terraform-eks-cluster
 ```
 
 ## Summary
