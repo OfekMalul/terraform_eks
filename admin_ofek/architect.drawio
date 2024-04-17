@@ -205,11 +205,11 @@
                 <mxCell id="181" value="&lt;b&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Pod: ALB controller&lt;/font&gt;&lt;br&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Times New Roman;" vertex="1" parent="1">
                     <mxGeometry x="613" y="1560" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="182" value="&lt;span style=&quot;font-weight: 600; text-align: start;&quot;&gt;&lt;font style=&quot;&quot; color=&quot;#ffffff&quot;&gt;argo.ofek.kubegurus.com&lt;/font&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Times New Roman;" vertex="1" parent="1">
-                    <mxGeometry x="393.25" y="1380" width="180" height="30" as="geometry"/>
+                <mxCell id="185" value="&lt;b&gt;weather.ofek.kubegurus.com&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Times New Roman;" vertex="1" parent="1">
+                    <mxGeometry x="139.75" y="1380" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="183" value="&lt;div style=&quot;line-height: 21px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; color=&quot;#ffffff&quot;&gt;weather.ofek.kubegurus.com&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Times New Roman;" vertex="1" parent="1">
-                    <mxGeometry x="148.25" y="1380" width="180" height="30" as="geometry"/>
+                <mxCell id="186" value="&lt;b&gt;argo.ofek.kubegurus.com&lt;br&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontFamily=Times New Roman;" vertex="1" parent="1">
+                    <mxGeometry x="391" y="1380" width="180" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
